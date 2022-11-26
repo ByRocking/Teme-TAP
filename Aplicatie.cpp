@@ -14,7 +14,7 @@ ContBancar::ContBancar(const ContBancar& obiect) {
 	this->numarCont = obiect.numarCont;
 }
 ContBancar::~ContBancar() {
-	this->suma = -1.0;
+	this->suma = NULL;
 	this->moneda = "";
 	this->numarCont = "";
 }
@@ -81,7 +81,7 @@ Client::~Client() {
 	this->nume = "";
 	this->prenume = "";
 	this->adresa = "";
-	this->nrConturi = 0;
+	this->nrConturi = NULL;
 }
 void Client::setNume(string nume) {
 	this->nume = nume;
@@ -107,4 +107,32 @@ string Client::getAdresa() {
 unsigned Client::getNrConturi() {
 	return this->nrConturi;
 }
-//CLASA 
+
+//CLASA BANCA
+Banca::Banca() {
+	this->codBanca = "Undefined";
+	this->nrClienti = 0;
+}
+Banca::Banca(const Banca& obiect) {
+	this->codBanca = obiect.codBanca;
+	this->nrClienti = obiect.nrClienti;
+}
+Banca::~Banca() {
+	this->codBanca = "";
+	this->nrClienti = NULL;
+}
+void Banca::setCodBanca(string codBanca) {
+	this->codBanca = codBanca;
+}
+void Banca::setNrClienti(unsigned nrClienti) {
+	this->nrClienti = nrClienti;
+}
+string Banca::getCodBanca() {
+	return this->codBanca;
+}
+unsigned Banca::getNrClienti() {
+	return this->nrClienti;
+}
+void Banca::afisareDateBanca() {
+	Client::afisareDateClient();
+}

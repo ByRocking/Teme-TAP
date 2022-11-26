@@ -33,6 +33,8 @@ class ContBancar : public Operatiuni {
 		float getDobanda();
 		void depunere(float suma);
 		void extragere(float suma);
+		void afisareDateCont();
+		
 };
 class Client : public Operatiuni {
 	private:
@@ -53,6 +55,9 @@ class Client : public Operatiuni {
 		string getPrenume();
 		string getAdresa();
 		unsigned getNrConturi();
+		static void afisareDateClient() {
+			cout << "Datele Clientului sunt " ;
+		}
 };
 
 class Banca : public Operatiuni {
@@ -60,6 +65,15 @@ class Banca : public Operatiuni {
 		string codBanca;
 		unsigned nrClienti;
 		Client *clienti[50];
+	public :
+		Banca();
+		Banca(const Banca& obiect);
+		~Banca();
+		void setCodBanca(string codBanca);
+		void setNrClienti(unsigned nrClienti);
+		string getCodBanca();
+		unsigned getNrClienti();
+		static void afisareDateBanca();
 
 };
 #endif
