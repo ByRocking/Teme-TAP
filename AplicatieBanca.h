@@ -19,7 +19,7 @@ class ContBancar : public Operatiuni {
 		string moneda;
 
 	public :
-		ContBancar();
+		ContBancar(string numarCont, float suma, string moneda);
 		ContBancar(const ContBancar& obiect); // Constructor de copiere
 		~ContBancar(); // Destructor
 		void setNumarCont(string numarCont);
@@ -36,15 +36,15 @@ class ContBancar : public Operatiuni {
 		void afisareDateCont();
 		
 };
-class Client : public Operatiuni {
+class Client {
 	private:
 		string nume;
 		string prenume;
 		string adresa;
 		unsigned nrConturi;
-		ContBancar *conturi[2];
+		ContBancar* conturi;
 	public:
-		Client();
+		Client(string nume, string prenume, string adresa, unsigned nrConturi, ContBancar* conturi);
 		Client(const Client& obiect);
 		~Client();
 		void setNume(string nume);
@@ -55,25 +55,23 @@ class Client : public Operatiuni {
 		string getPrenume();
 		string getAdresa();
 		unsigned getNrConturi();
-		static void afisareDateClient() {
-			cout << "Datele Clientului sunt " ;
-		}
+		void afisareDateClient();
 };
 
-class Banca : public Operatiuni {
+class Banca {
 	private:
 		string codBanca;
 		unsigned nrClienti;
-		Client *clienti[50];
+		Client* clienti;
 	public :
-		Banca();
+		Banca(string codBanca, unsigned nrClienti, Client * clienti);
 		Banca(const Banca& obiect);
 		~Banca();
 		void setCodBanca(string codBanca);
 		void setNrClienti(unsigned nrClienti);
 		string getCodBanca();
 		unsigned getNrClienti();
-		static void afisareDateBanca();
+		void afisareDateBanca();
 
 };
 #endif

@@ -2,10 +2,10 @@
 
 // CLASA CONT BANCAR
 // Constructor default
-ContBancar::ContBancar() {
-	this->suma = 1.0;
-	this->moneda = "Undefined";
-	this->numarCont = "1";
+ContBancar::ContBancar(string numarCont, float suma, string moneda) {
+	this->suma = suma;
+	this->moneda = moneda;
+	this->numarCont = numarCont;
 }
 // Constructor de copiere
 ContBancar::ContBancar(const ContBancar& obiect) {
@@ -64,24 +64,34 @@ void ContBancar::depunere(float suma) {
 void ContBancar::extragere(float suma) {
 	this->suma -= suma;
 }
+void ContBancar::afisareDateCont() {
+	cout << "Datele contului sunt :" << suma << endl << moneda << numarCont << endl;
+}
+
 // CLASA CLIENT
-Client::Client() {
-	this->nume = "Undefined";
-	this->prenume = "Undefined";
-	this->adresa = "Undefined";
-	this->nrConturi = 0;
+Client::Client(string nume, string prenume, string adresa, unsigned nrConturi, ContBancar *conturi) {
+	this->nume = nume;
+	this->prenume = prenume;
+	this->adresa = adresa;
+	this->nrConturi = nrConturi;
+	this->conturi = conturi;
 }
 Client::Client(const Client& obiect) {
 	this->nume = obiect.nume;
 	this->prenume = obiect.prenume;
 	this->adresa = obiect.adresa;
 	this->nrConturi = obiect.nrConturi;
+	this->conturi = obiect.conturi;
+	for (int i = 0; i < 5; i++) {
+		this->conturi[i] = obiect.conturi[i];
+	}
 }
 Client::~Client() {
 	this->nume = "";
 	this->prenume = "";
 	this->adresa = "";
 	this->nrConturi = NULL;
+	delete[] this->conturi;
 }
 void Client::setNume(string nume) {
 	this->nume = nume;
@@ -107,19 +117,30 @@ string Client::getAdresa() {
 unsigned Client::getNrConturi() {
 	return this->nrConturi;
 }
+void Client::afisareDateClient() {
+	for (int i = 0; i < nrConturi; i++) {
+		conturi[i].afisareDateCont();
+	}
+}
 
 //CLASA BANCA
-Banca::Banca() {
-	this->codBanca = "Undefined";
-	this->nrClienti = 0;
+Banca::Banca(string codBanca, unsigned nrClienti, Client* clienti) {
+	this->codBanca = codBanca;
+	this->nrClienti = nrClienti;
+	this->clienti = clienti;
 }
 Banca::Banca(const Banca& obiect) {
 	this->codBanca = obiect.codBanca;
 	this->nrClienti = obiect.nrClienti;
+	this->clienti = obiect.clienti;
+	for (int i = 0; i < 5; i++) {
+		this->clienti[i] = obiect.clienti[i];
+	}
 }
 Banca::~Banca() {
 	this->codBanca = "";
 	this->nrClienti = NULL;
+	delete[] this->clienti;
 }
 void Banca::setCodBanca(string codBanca) {
 	this->codBanca = codBanca;
@@ -134,5 +155,7 @@ unsigned Banca::getNrClienti() {
 	return this->nrClienti;
 }
 void Banca::afisareDateBanca() {
-	Client::afisareDateClient();
+	for (int i = 0; i < nrClienti; i++) {
+		clienti[i].afisareDateClient();
+	}
 }
