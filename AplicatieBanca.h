@@ -21,6 +21,7 @@ class ContBancar : public Operatiuni {
 	public :
 		ContBancar(string numarCont, float suma, string moneda);
 		ContBancar(const ContBancar& obiect); // Constructor de copiere
+		ContBancar();
 		~ContBancar(); // Destructor
 		void setNumarCont(string numarCont);
 		void setSuma(float suma);
@@ -45,12 +46,14 @@ class Client {
 		ContBancar* conturi;
 	public:
 		Client(string nume, string prenume, string adresa, unsigned nrConturi, ContBancar* conturi);
+		Client();
 		Client(const Client& obiect);
 		~Client();
 		void setNume(string nume);
 		void setPrenume(string prenume);
 		void setAdresa(string adresa);
 		void setNrConturi(unsigned nrConturi);
+		void setCont(ContBancar*);
 		string getNume();
 		string getPrenume();
 		string getAdresa();

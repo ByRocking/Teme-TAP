@@ -13,6 +13,9 @@ ContBancar::ContBancar(const ContBancar& obiect) {
 	this->moneda = obiect.moneda;
 	this->numarCont = obiect.numarCont;
 }
+ContBancar::ContBancar() {
+
+}
 ContBancar::~ContBancar() {
 	this->suma = NULL;
 	this->moneda = "";
@@ -65,7 +68,7 @@ void ContBancar::extragere(float suma) {
 	this->suma -= suma;
 }
 void ContBancar::afisareDateCont() {
-	cout << "Datele contului sunt :" << suma << endl << moneda << numarCont << endl;
+	cout << endl << "Datele contului sunt : " << endl << "Suma : " << suma << endl << "Moneda : " << moneda << endl << "Numarul contului : " << numarCont << endl;
 }
 
 // CLASA CLIENT
@@ -85,6 +88,9 @@ Client::Client(const Client& obiect) {
 	for (int i = 0; i < nrConturi; i++) {
 		this->conturi[i] = obiect.conturi[i];
 	}
+}
+Client::Client() {
+
 }
 Client::~Client() {
 	this->nume = "";
@@ -121,6 +127,10 @@ void Client::afisareDateClient() {
 	for (int i = 0; i < nrConturi; i++) {
 		conturi[i].afisareDateCont();
 	}
+}
+void Client::setCont(ContBancar* conturi)
+{
+	this->conturi = conturi;
 }
 
 //CLASA BANCA
