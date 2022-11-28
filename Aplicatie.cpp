@@ -82,7 +82,7 @@ Client::Client(const Client& obiect) {
 	this->adresa = obiect.adresa;
 	this->nrConturi = obiect.nrConturi;
 	this->conturi = obiect.conturi;
-	for (int i = 0; i < 5; i++) {
+	for (int i = 0; i < conturi; i++) {
 		this->conturi[i] = obiect.conturi[i];
 	}
 }
