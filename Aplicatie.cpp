@@ -82,7 +82,7 @@ Client::Client(const Client& obiect) {
 	this->adresa = obiect.adresa;
 	this->nrConturi = obiect.nrConturi;
 	this->conturi = obiect.conturi;
-	for (int i = 0; i < conturi; i++) {
+	for (int i = 0; i < nrConturi; i++) {
 		this->conturi[i] = obiect.conturi[i];
 	}
 }
@@ -133,7 +133,7 @@ Banca::Banca(const Banca& obiect) {
 	this->codBanca = obiect.codBanca;
 	this->nrClienti = obiect.nrClienti;
 	this->clienti = obiect.clienti;
-	for (int i = 0; i < 5; i++) {
+	for (int i = 0; i < nrClienti; i++) {
 		this->clienti[i] = obiect.clienti[i];
 	}
 }
