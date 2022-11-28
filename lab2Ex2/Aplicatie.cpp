@@ -40,7 +40,8 @@ string ContBancar::getNumarCont() {
 	return this->numarCont;
 }
 void ContBancar::transfer(ContBancar& obiect, float suma) {
-	obiect.suma = suma;
+	this->suma -= suma;
+	obiect.suma += suma;
 }
 float ContBancar::getDobanda() {
 	if (this->moneda == "RON") {

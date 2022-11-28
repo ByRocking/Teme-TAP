@@ -56,6 +56,7 @@ int main() {
 	for (int i = 0; i < 2; i++) {
 		float sumaD;
 		float sumaR;
+		float sumaT;
 		cout << "Introduceti suma pe care doriti sa o depuneti in cont : ";
 		cin >> sumaD;
 		cont[i].depunere(sumaD);
@@ -63,6 +64,9 @@ int main() {
 		cout << endl << "Introduceti suma pe care doriti sa o retrageti din cont : ";
 		cin >> sumaR;
 		cout << endl << "Ati retras " << sumaR << " iar suma actuala este de " << cont[i].getSumaTotala() << endl;
+		cout << endl << "Introduceti suma pe care doriti sa o transferati : ";
+		cin >> sumaT;
+		cont[i].transfer(cont[1], sumaT);
 	}
 
 
