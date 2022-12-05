@@ -4,24 +4,17 @@
 using namespace std;
 
 int main(void) {
-    Complex a(10, 2);
-    Complex b(8, 9);
+    Complex a(3, 13);
+    Complex b(7, 17);
     Complex c;
-
     c = c.adunare(a, b);
     cout << "Suma numerelor complexe : "<< c.getReal() << " + i"<< c.getImaginar() << endl;
-
     c = c.scadere(a, b);
-    cout << "Diferenta numerelor complexe : "<< c.getReal() << " + i"<< c.getImaginar() << endl;
-
-    c = c.inmulitre(a, b);
-    cout << "Produsul numerelor complexe : " << c.getReal() << " + i" << c.getImaginar() << endl;
-
-    c = c.impartire(a, b);
-    cout << "Catul numerelor complexe : " << c.getReal() << " + i" << c.getImaginar() << endl;
-
-    c = modul(a,b);
-    cout << "Restul numerelor complexe : " << c.getReal() << " + i" << c.getImaginar() << endl;
-
-    conjugat(a, b);
+    cout << "Diferenta numerelor complexe : " << c.getReal() << " + i" << c.getImaginar() << endl;
+    c.inmulitre(a, b);
+    c.impartire(a, b);
+    modul(a);
+    modul(b);
+    cout << "Conjugata primului numar complex este : " << conjugat(a).getReal() << " " << conjugat(a).getImaginar() << "i" << endl;
+    cout << "Conjugata celui de al doilea numar complex este : " << conjugat(b).getReal() << " " << conjugat(b).getImaginar() << "i" << endl;
 }

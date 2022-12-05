@@ -8,41 +8,30 @@ using namespace std;
 
 class Complex {
 	private :
-		int real;
-		int imaginar;
+		double real;
+		double imaginar;
 	public :
 		Complex();
-		Complex(int real,int imaginar);
+		Complex(double real, double imaginar);
 		Complex(const Complex& object);
 		~Complex();
-		inline void setReal(int real) {
+		inline void setReal(double real) {
 			this->real = real;
 		}
-		inline void setImaginar(int imaginar) {
+		inline void setImaginar(double imaginar) {
 			this->imaginar = imaginar;
 		}
-		inline int getReal() {
+		inline double getReal() {
 			return this->real;
 		}
-		inline int getImaginar() {
+		inline double getImaginar() {
 			return this->imaginar;
 		}
 		Complex adunare(Complex a, Complex b);
 		Complex scadere(Complex a, Complex b);
-		Complex inmulitre(Complex a, Complex b);
-		Complex impartire(Complex a, Complex b);
-		friend Complex modul(Complex a, Complex b) {
-			Complex rezultat;
-			rezultat.real = a.real % b.real;
-			rezultat.imaginar = a.imaginar % b.imaginar;
-			return rezultat;
-		}
-		friend void conjugat(Complex a, Complex b) {
-			complex<double> nrComplexA(a.real, a.imaginar);
-			complex<double> nrComplexB(b.real, b.imaginar);
-			cout << "Conjugata primului numar complex este : " << conj(nrComplexA) << endl;
-			cout << "Conjugata celui de al doile numar complex este : " << conj(nrComplexB) << endl;
-		}
+		void inmulitre(Complex a, Complex b);
+		void impartire(Complex a, Complex b);
+		friend void modul(Complex a);
+		friend Complex conjugat(Complex a);
 };
 #endif 
-
