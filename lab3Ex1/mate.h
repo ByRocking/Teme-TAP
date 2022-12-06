@@ -25,6 +25,10 @@ class Punct {
 	private :
 		double x; // Abscisa
 		double y; // Ordonata
+		static Dreapta dr;
+		static int semiplanPozitiv;
+		static int semiplanNegativ;
+		static int contorPuncteDreapta;
 
 	public :
 		Punct(double x, double y);
@@ -35,8 +39,15 @@ class Punct {
 		void setX(double x);
 		void setY(double y);
 		void afisare();
+		inline static int getInstance() {
+			return contorPuncteDreapta;
+		}
 		friend class Dreapta;
-		friend double distanta(Punct unu, Punct doi);
+		friend double distanta(Punct unu, Punct doi) {
+
+			double distanta = sqrt((pow((doi.y - doi.x), 2)) + (pow((unu.y - unu.x), 2)));
+			return distanta;
+		}
 };
 
 
