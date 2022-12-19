@@ -3,6 +3,11 @@
 #include <cmath>
 
 using namespace std;
+Dreapta Punct::dr;
+int Punct::contorPuncteDreapta = 0;
+int Punct::semiplanNegativ = 0;
+int Punct::semiplanPozitiv = 0;
+int Punct::contorPuncteDreapta = 0;
 
 Dreapta::Dreapta(double m, double n) : m(m), n(n) {
 }
@@ -31,14 +36,28 @@ void Dreapta::setN(double n) {
 
 Punct::Punct(double x, double y) : x(x), y(y) {
 
+	if ( (dr.getM() * x) + dr.getN() == y) {
+		contorPuncteDreapta++;
+		cout << "Puncte pe dreapta : " << contorPuncteDreapta << endl;
+	}
+	else if ((dr.getM() * x) + (dr.getN() - y) > 0) {
+		semiplanPozitiv++;
+		cout << "Semiplan pozitiv : " << semiplanPozitiv << endl;
+	}
+	else {
+		cout << "Puncte pe dreapta : " << semiplanNegativ << endl;
+		semiplanNegativ++;
+	}
 }
 Punct::Punct(const Punct& object) {
 	this->x = object.x;
 	this->y = object.y;
+	contorPuncteDreapta++;
 }
 Punct::~Punct() {
 	this->x = NULL;
 	this->y = NULL;
+	contorPuncteDreapta--;
 }
 double Punct::getX() {
 	return this->x;
@@ -52,12 +71,7 @@ void Punct::setX(double x) {
 void Punct::setY(double y) {
 	this->x = x;
 }
-double distanta(Punct unu, Punct doi) {
-	
-	double distanta = sqrt((pow((doi.y - doi.x), 2)) + (pow((unu.y - unu.x), 2)));
-	return distanta;
 
-}
 void Punct::afisare() {
 	cout << endl << "x : " << this->x << endl;
 	cout << endl << "y : " << this->y << endl;
