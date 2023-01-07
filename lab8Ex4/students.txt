@@ -1,0 +1,5 @@
+4
+1971104 RomanRazvan 10 10 0
+5001111 Hades 5 5 9
+6024121 Aphrodite 9 9 11
+6049877 Hera 8 9 10
