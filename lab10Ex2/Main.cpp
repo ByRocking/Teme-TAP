@@ -21,7 +21,7 @@ int main(void) {
     replace(myvector.begin(), myvector.end(), 20, 99); 
     // 10 99 30 30 99 10 10 99
 
-    std::cout << "myvector contains:";
+    std::cout << "Vector items : ";
     for (std::vector<int>::iterator it = myvector.begin(); it != myvector.end(); ++it)
         std::cout << ' ' << *it;
     std::cout << endl;
